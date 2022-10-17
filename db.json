@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "id": "pYZYs9x",
+      "name": "khanGymggg",
+      "email": "uydgiqgd@hh.com",
+      "age": "22",
+      "position": "React Developer",
+      "phoneNumber": "6432846222"
+    },
+    {
+      "name": "Mujahid",
+      "email": "kha@gmail.com",
+      "age": "21",
+      "position": "Full Stack Developer",
+      "phoneNumber": "8375285742",
+      "id": "AG6hKbu"
+    },
+    {
+      "name": "sadf",
+      "email": "mujeebbridgetown@gmail.com",
+      "age": "45",
+      "position": "Angular Developer",
+      "phoneNumber": "3252563464",
+      "id": "4Gu11yH"
+    }
+  ]
+}

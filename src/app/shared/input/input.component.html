@@ -1,0 +1,31 @@
+<input
+  [formControl]="control"
+  [type]="type"
+  class="shadow-sm border sm:text-sm rounded-lg block w-full p-2.5 bg-gray-600 border-gray-500 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
+  [placeholder]="placeholder"
+/>
+
+<ng-container *ngIf="control.touched && control.dirty">
+  <p *ngIf="control.errors?.['required']" class="text-red-400">
+    Field is required
+  </p>
+  <p *ngIf="control.errors?.['minlength']" class="text-red-400">
+    The value you inputed is
+    {{ control.errors?.['minlength']?.['actualLength']  }}
+    character long . It must be at least
+    {{  control.errors?.['minlength']?.['requiredLength'] }}
+    character long
+  </p>
+  <p *ngIf="control.errors?.['maxlength']" class="text-red-400">
+    The value you inputed is
+    {{ control.errors?.['maxlength']?.['actualLength']  }}
+    character long . It not be more than
+    {{  control.errors?.['maxlength']?.['requiredLength'] }}
+    character long
+  </p>
+  <p *ngIf="control.errors?.['email']" class="text-red-400">
+    You must enter a valid email.
+  </p>
+  <p *ngIf="control.errors?.['min']" class="text-red-400">Value too low</p>
+  <p *ngIf="control.errors?.['max']" class="text-red-400">Value too high</p>
+</ng-container>

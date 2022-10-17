@@ -1,0 +1,37 @@
+<div class="relative rounded-lg shadow bg-gray-700">
+  <div
+    class="flex justify-between items-start p-4 rounded-t border-b border-gray-600"
+  >
+    <h3 class="text-xl font-semibold text-white">Edit user</h3>
+    <div>
+      <button
+        type="button"
+        routerLink=""
+        class="text-gray-400 bg-transparent rounded-lg text-sm p-1.5 ml-auto inline-flex items-center hover:bg-gray-600 hover:text-white"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-5 h-5"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+  <app-user-form
+    [user]="user"
+    [isEdit]="isEdit"
+    (create)="onCreate($event)"
+    (update)="onUpdate($event)"
+    (delete)="onDelete($event)"
+  >
+  </app-user-form>
+</div>

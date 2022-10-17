@@ -1,0 +1,96 @@
+<form [formGroup]="userForm">
+  <div class="p-6 space-y-6">
+    <div class="grid grid-cols-10 gap-6">
+      <div class="col-span-5">
+        <label class="block mb-2 text-sm font-medium text-white"
+          >First Name</label
+        >
+        <app-input [control]="name" placeholder="Enter Name"></app-input>
+      </div>
+
+      <div class="col-span-5">
+        <label class="block mb-2 text-sm font-medium text-white">Email</label>
+        <app-input [control]="email" placeholder="Enter Email"></app-input>
+      </div>
+      <div class="col-span-4">
+        <label class="block mb-2 text-sm font-medium text-white"
+          >Position</label
+        >
+
+        <select
+          name="position"
+          [formControl]="position"
+          class="shadow-sm border sm:text-sm rounded-lg block w-full p-2.5 bg-gray-600 border-gray-500 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
+        >
+          <!-- class="inline-flex items-center border focus:outline-none focus:ring-4 font-medium rounded-lg text-sm px-3 py-1.5 bg-gray-800 text-gray-400 border-gray-600 hover:bg-gray-700 hover:border-gray-600 focus:ring-gray-700" -->
+
+          <option Value="" disabled selected hidden>
+            Select your Job Position
+          </option>
+          <option *ngFor="let job of jobPosition">
+            {{ job }}
+          </option>
+        </select>
+      </div>
+      <div class="col-span-4">
+        <label class="block mb-2 text-sm font-medium text-white"
+          >Phone Number</label
+        >
+        <app-input
+          [control]="phoneNumber"
+          type="number"
+          placeholder="enter phone no"
+        ></app-input>
+      </div>
+
+      <div class="col-span-2">
+        <label for="company" class="block mb-2 text-sm font-medium text-white"
+          >Age</label
+        >
+        <app-input
+          type="number"
+          [control]="age"
+          placeholder="enter age"
+        ></app-input>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-600"
+  >
+    <button
+      type="submit"
+      *ngIf="!isEdit"
+      (click)="handleSubmit()"
+      [disabled]="userForm.invalid || inSubmission"
+      class="text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800 disabled:opacity-50 disabled:bg-indigo-400"
+    >
+      Add User
+    </button>
+
+    <button
+      (click)="handleUpdate()"
+      *ngIf="isEdit"
+      [disabled]="userForm.invalid || inSubmission"
+      class="text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-red-600 hover:bg-red-700 focus:ring-red-800 disabled:opacity-50 disabled:bg-red-400"
+    >
+      Update
+    </button>
+    <button
+      *ngIf="userForm.touched || isEdit"
+      (click)="handleReset()"
+      class="text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-red-600 hover:bg-red-700 focus:ring-red-800 disabled:opacity-50 disabled:bg-red-400"
+    >
+      Reset
+    </button>
+    <button
+      *ngIf="isEdit"
+      routerLink=""
+      (click)="handleDelete()"
+      class="text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-red-600 hover:bg-red-700 focus:ring-red-800 disabled:opacity-50 disabled:bg-red-400"
+    >
+      Delete
+    </button>
+  </div>
+</form>
