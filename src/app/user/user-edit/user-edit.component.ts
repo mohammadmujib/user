@@ -42,8 +42,6 @@ export class UserEditComponent implements OnInit {
       .subscribe(() => console.log('created sucessFully'));
   }
   onDelete(user: User) {
-    this.userService
-      .delete(user)
-      .subscribe(() => console.log('deleted successfully'));
+    this.userService.delete(user).subscribe(() => this.router.navigate([user]));
   }
 }
